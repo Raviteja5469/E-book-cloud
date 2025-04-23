@@ -25,6 +25,8 @@ const BookDetail = () => {
             midnightlibrary,
             midnightlibrary,
             midnightlibrary,
+            midnightlibrary,
+            midnightlibrary,
         ],
         rating: 4.8,
         totalReviews: 2462,

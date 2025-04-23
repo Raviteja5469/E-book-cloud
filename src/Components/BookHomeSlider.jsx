@@ -92,6 +92,8 @@ const BookHomeSlider = ({title, books}) => {
             <BookCard />
             <BookCard />
             <BookCard />
+            <BookCard />
+            <BookCard />
 
             {/* See More Card */}
             <div className="

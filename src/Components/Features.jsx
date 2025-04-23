@@ -70,7 +70,7 @@ const Features = () => {
             >
               <div className={`
                 absolute inset-0 
-                bg-gradient-to-r from-${feature.color}-500/10 to-transparent
+                bg-gray-500
                 rounded-2xl 
                 blur-xl 
                 group-hover:opacity-100 

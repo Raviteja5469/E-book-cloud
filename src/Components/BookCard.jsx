@@ -1,13 +1,13 @@
 import React from "react";
 import { Eye, BookOpen, Tag } from "lucide-react";
 import { Link } from "react-router-dom";
-import book from "../assets/midnight-library.jpg";
+import bookpage from "../assets/midnight-library.jpg";
 
 const BookCard = ({ book = {
   title: "The Digital Renaissance",
   author: "Sarah Mitchell",
   genre: "Technology & Society",
-  image: "book-cover.jpg",
+  image: bookpage,
   description: "An exploration of how digital transformation is reshaping our relationship with literature and knowledge.",
   rating: 4.8,
 } }) => {

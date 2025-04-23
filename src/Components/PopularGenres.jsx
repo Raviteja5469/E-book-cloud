@@ -58,67 +58,59 @@ const PopularGenres = () => {
           </p>
         </div>
 
-        {/* Genre Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {genres.map((genre, index) => (
-            <div
-              key={index}
-              className="relative group rounded-2xl shadow-xl hover:shadow-2xl 
-                         transition-all duration-300 transform hover:-translate-y-2"
-            >
-              {/* Genre Card */}
-              <div className="relative h-[450px] overflow-hidden rounded-2xl">
-                {/* Background Image */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url(${genre.image})`,
-                    filter: 'brightness(0.9)'
-                  }}
-                />
-                
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-
-                {/* Content */}
-                <div className="relative h-full p-8 flex flex-col justify-between">
-                  <div>
-                    <div className="mb-4 p-3 bg-white/10 backdrop-blur-sm rounded-lg w-fit">
-                      <genre.icon className="w-8 h-8 text-blue-400" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      {genre.title}
-                    </h3>
-                    <p className="text-gray-200 mb-4">
-                      {genre.description}
-                    </p>
-                    <span className="inline-block bg-blue-600/20 text-blue-100 px-3 py-1 rounded-full text-sm">
-                      {genre.count}
-                    </span>
-                  </div>
-
-                  {/* Button */}
-                  <button className="w-full mt-6 bg-white/10 hover:bg-white/20 
-                                   backdrop-blur-sm border border-white/20
-                                   text-white px-6 py-4 rounded-xl
-                                   flex items-center justify-center group
-                                   transition-all duration-300">
-                    <span className="mr-2">Browse Collection</span>
-                    <ChevronRight className="w-5 h-5 transform group-hover:translate-x-1 
-                                           transition-transform duration-300" />
-                  </button>
+        {/* Main content area: Genres on left, Quote on right */}
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Genre List (Left Side) */}
+          <div className="flex flex-col gap-6 md:w-1/2">
+            {genres.map((genre, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-4 p-4 rounded-xl shadow-lg hover:shadow-xl
+                           transition-all duration-300 transform hover:-translate-y-1
+                           bg-gradient-to-r from-gray-800 to-gray-900 text-white"
+              >
+                {/* Icon */}
+                <div className="p-3 bg-white/10 rounded-lg">
+                  <genre.icon className="w-6 h-6 text-blue-400" />
                 </div>
 
-                {/* Hover Effect Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r opacity-0 
-                              group-hover:opacity-20 transition-opacity duration-300"
-                     style={{ backgroundImage: `linear-gradient(to right, ${genre.color})` }} />
+                {/* Text Content */}
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold">{genre.title}</h3>
+                  <p className="text-sm text-gray-300">{genre.description}</p>
+                  <span className="text-xs text-blue-200">{genre.count}</span>
+                </div>
+
+                {/* Button */}
+                <button className="flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300">
+                  <span>Browse</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          {/* Added md:w-1/2 to take half width on medium screens+, added styling for the quote */}
+          <div className="md:w-1/2 flex items-center justify-center p-8">
+            <figure className="max-w-screen-md mx-auto text-center">
+                <svg className="w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+                    <path d="M6 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4v-3h-1c-.4 0-.7-.1-.9-.4-.3-.3-.4-.6-.4-1 0-.4.1-.7.4-1 .2-.3.5-.4.9-.4h1V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4v-3h-1c-.4 0-.7-.1-.9-.4-.3-.3-.4-.6-.4-1 0-.4.1-.7.4-1 .2-.3.5-.4.9-.4h1V2a2 2 0 0 0-2-2Z"/>
+                </svg>
+                <blockquote>
+                    <p className="text-2xl italic font-medium text-gray-900 dark:text-white">"The only limit to our realization of tomorrow will be our doubts of today."</p>
+                </blockquote>
+                <figcaption className="flex items-center justify-center mt-6 space-x-3 rtl:space-x-reverse">
+                    <img className="w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="profile picture"/>
+                    <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-300 dark:divide-gray-700">
+                        <cite className="pe-3 font-medium text-gray-900 dark:text-white">Franklin D. Roosevelt</cite>
+                        <cite className="ps-3 text-sm text-gray-500 dark:text-gray-400">Former U.S. President</cite>
+                    </div>
+                </figcaption>
+            </figure>
+          </div>
         </div>
 
-        {/* Bottom CTA */}
+
+        {/* Bottom CTA - kept as is */}
         <div className="text-center mt-16">
           <button className="inline-flex items-center px-8 py-4 rounded-full
                            bg-blue-600 hover:bg-blue-700 text-white
